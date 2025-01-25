@@ -54,7 +54,7 @@ const isAuthenticated = (req, res, next) => {
 app.use('/login', loginRoutes);
 app.use('/users', userRoutes);
 
-app.get('/getSessionInfos', function(req,res,next){
+app.get('/getSessionInfos', isAuthenticated, function(req,res,next){
    res.send(req.session);
 });
 
